@@ -1,0 +1,12 @@
+.btn {
+  &--readMore {
+    border: 3px solid black;
+    border-radius: 50px;
+    background: transparent;
+    color: black;
+    font-weight: bold;
+    padding: 6px 16px;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+}

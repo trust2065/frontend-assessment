@@ -1,0 +1,26 @@
+.header {
+  &--fw {
+    &-bolder {
+      font-weight: bolder;
+    }
+    &-normal {
+      font-weight: normal;
+    }
+    &-white {
+      color: white;
+    }
+  }
+  &--color {
+    &-white {
+      color: white;
+    }
+  }
+  &--ls {
+    &-1 {
+      letter-spacing: 1px;
+    }
+    &-2 {
+      letter-spacing: 2px;
+    }
+  }
+}
