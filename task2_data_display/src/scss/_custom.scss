@@ -1,0 +1,73 @@
+#app {
+  // font-family: "Courier New", Times, serif;
+  // font-family: "Proxima Nova Soft", "Helvetica Neue", sans-serif;
+  font-family: "Source Code Pro", monospace;
+}
+.section_desktop {
+  display: block;
+  @extend .rounded-10;
+  @extend .bg-light;
+}
+.section_mobile {
+  display: none;
+}
+.tab-content {
+  background: $bg-3;
+  min-height: 80vh;
+  box-shadow: 0 -1px 1px 0 $shadow-color;
+  letter-spacing: 2px;
+  line-height: 2rem;
+  li {
+    display: flex;
+  }
+  li:before {
+    font-family: "Material Icons";
+    content: "arrow_right";
+    display: inline-block;
+    font-size: 1.2rem;
+  }
+}
+.material-icons {
+  margin-right: 0.5rem;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: $bg-3;
+  @extend .display-4;
+  .material-icons {
+    animation: pendulum 0.5s ease-out;
+    animation-fill-mode: forwards;
+    margin-right: 1rem;
+  }
+  @keyframes pendulum {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    33% {
+      transform: rotate(-45deg) scale(2);
+    }
+    66% {
+      transform: rotate(45deg) scale(2);
+    }
+    100% {
+      transform: rotate(0deg) scale(2);
+    }
+  }
+}
+.nav-shadow {
+  @extend .rounded-top-5;
+  $blur: 1.5px;
+  $spread: 0;
+  $offset: 1.5px;
+  box-shadow: 0 -#{$offset} $blur $spread $shadow-color,
+    $offset -#{$offset} $blur $spread $shadow-color,
+    -#{$offset} -#{$offset} $blur $spread $shadow-color;
+}
+@media screen and (max-width: #{$breakpoint-sm}px) {
+  .section_desktop {
+    display: none;
+  }
+  .section_mobile {
+    display: block;
+  }
+}

@@ -1,0 +1,17 @@
+$breakpoint-sm: 576;
+$breakpoint-md: 768;
+$breakpoint-lg: 992;
+$breakpoint-xl: 1200;
+
+.rounded-top-5 {
+  border-radius: 5px 5px 0 0;
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
+
+// $bg-1: blue;
+$shadow-color: #eee;
+$bg-2: #ddd;
+$bg-3: white;

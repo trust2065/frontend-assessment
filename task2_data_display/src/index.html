@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.scss" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <title>Task2</title>
+  </head>
+  <body>
+    <div id="app" class="container-fluid p-5 bg-primary">
+      <!-- desktop -->
+      <div class="section_desktop pt-5">
+        <nav>
+          <ul class="nav nav-pills justify-content-center align-items-end">
+            <li
+              class="nav-item mx-1"
+              v-for="(item, index) in dataList"
+              :class="{ 'active': index===0 }"
+            >
+              <a
+                data-toggle="tab"
+                class="nav-link text-dark px-4 nav-shadow d-flex align-items-center"
+                :class="{'active': index===0}"
+                :href="'#tab' + index"
+              >
+                <i class="material-icons">{{ iconList[index] }}</i>
+                <div>{{ item.title }}</div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="tab-content p-5 rounded-10">
+          <article
+            v-for="(item, index) in dataList"
+            :id="'tab' + index"
+            class="tab-pane fade in"
+            :class="{ 'active': index===0, 'show': index===0 }"
+            v-html="item.content"
+          ></article>
+        </main>
+      </div>
+
+      <!-- mobile -->
+      <div class="section_mobile">
+        <div class="accordion" id="accordionExample">
+          <div v-for="(item, index) in dataList" class="card">
+            <div class="card-header" :id="'heading' + index">
+              <h2 class="mb-0">
+                <button
+                  class="btn btn-link"
+                  type="button"
+                  data-toggle="collapse"
+                  :data-target="'#card' + index"
+                  aria-expanded="true"
+                  :aria-controls="'card' + index"
+                >
+                  {{ item.title }}
+                </button>
+              </h2>
+            </div>
+
+            <div
+              :id="'card' + index"
+              class="collapse"
+              :class="{ 'show': index===0 }"
+              :aria-labelledby="'heading' + index"
+              data-parent="#accordionExample"
+            >
+              <div class="card-body" v-html="item.content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
