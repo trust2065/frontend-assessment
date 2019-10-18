@@ -1,0 +1,47 @@
+.jumbotron {
+  background: url("http://via.placeholder.com/1920x650") no-repeat center;
+  min-height: 550px;
+  @media screen and (max-width: #{$breakpoint-sm}px) {
+    background: url("http://via.placeholder.com/600x600") no-repeat center;
+    min-height: 600px;
+  }
+  background-size: cover;
+}
+
+.contentColumn {
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .justify-content-between;
+  @extend .align-items-center;
+  padding: 1rem;
+  border: 2px solid #eee;
+  @extend .rounded-10;
+  box-shadow: 0px 0px 4px 1px #eee;
+}
+
+.readMore {
+  border: 3px solid black;
+  border-radius: 50px;
+  background: transparent;
+  color: black;
+  padding: 7px 18px;
+  @extend .letter-spacing-1_7;
+  @extend .text-uppercase;
+  @extend .font-weight-bold;
+}
+
+.display-4 {
+  font-size: 4rem;
+}
+@media screen and (max-width: #{$breakpoint-m-medium}px) {
+  .display-xs-3 {
+    font-size: 3rem;
+  }
+}
+.h2,
+h2 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1.1rem;
+}

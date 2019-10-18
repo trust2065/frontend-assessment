@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Task 1: Build a responsive page based on the designs</title>
+    <link rel="stylesheet" href="./style.scss" />
+  </head>
+  <body>
+    <section class="jumbotron jumbotron-fluid d-flex align-items-center">
+      <div class="container text-center">
+        <h1
+          class="display-4 display-xs-3 text-white letter-spacing-2 font-weight-bolder"
+        >
+          Hello Developer!
+        </h1>
+        <h2 class="h2 font-weight-normal text-white letter-spacing-2">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit
+        </h2>
+      </div>
+    </section>
+    <main id="app" class="container">
+      <div class="row">
+        <section
+          v-for="data in dataList"
+          class="col-12 col-lg-4 col-md-6 border-0 d-flex align-items-stretch mb-5"
+        >
+          <div class="contentColumn">
+            <div class="d-flex flex-column text-center">
+              <img
+                class="img-fluid rounded-10 mb-3"
+                :src="data.imageUrl"
+                alt="data.alt"
+              />
+              <p class="font-weight-400 letter-spacing-01">
+                {{ data.text }}
+              </p>
+            </div>
+            <button class="readMore">
+              Read more
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

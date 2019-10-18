@@ -1,0 +1,30 @@
+$breakpoint-m-medium: 376;
+$breakpoint-sm: 576;
+$breakpoint-md: 768;
+$breakpoint-lg: 992;
+$breakpoint-xl: 1200;
+
+.font-weight {
+  &-bolder {
+    font-weight: bolder;
+  }
+  &-400 {
+    font-weight: 400;
+  }
+}
+
+.letter-spacing {
+  &-01 {
+    letter-spacing: 0.1px;
+  }
+  &-1_7 {
+    letter-spacing: 1.7px;
+  }
+  &-2 {
+    letter-spacing: 2px;
+  }
+}
+
+.rounded-10 {
+  border-radius: 10px;
+}
