@@ -7,6 +7,7 @@
 ```cmd
 cd task1_responsive_page
 yarn start
+// then open http://localhost:1234
 ```
 
 ### Demo url - exercise 1
@@ -42,6 +43,7 @@ Customized `font-weight`, `letter-spacing` and round corner are also needed for 
 ```cmd
 cd task2_data_display
 yarn start
+// then open http://localhost:1234
 ```
 
 ### Demo url - exercise 2
