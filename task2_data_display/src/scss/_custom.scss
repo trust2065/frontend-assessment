@@ -3,71 +3,163 @@
   // font-family: "Proxima Nova Soft", "Helvetica Neue", sans-serif;
   font-family: "Source Code Pro", monospace;
 }
+.btn-link {
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+  font-weight: bold;
+}
+
 .section_desktop {
-  display: block;
   @extend .rounded-10;
   @extend .bg-light;
-}
-.section_mobile {
-  display: none;
-}
-.tab-content {
-  background: $bg-3;
-  min-height: 80vh;
-  box-shadow: 0 -1px 1px 0 $shadow-color;
-  letter-spacing: 2px;
-  line-height: 2rem;
-  li {
-    display: flex;
+
+  .tab-content {
+    background: $bg-3;
+    min-height: 600px;
+    box-shadow: 0 -1px 1px 0 $shadow-color;
+    letter-spacing: 2px;
+    line-height: 2rem;
+    li {
+      display: flex;
+    }
+    li:before {
+      font-family: "Material Icons";
+      content: "arrow_right";
+      display: inline-block;
+      font-size: 1.2rem;
+    }
   }
-  li:before {
-    font-family: "Material Icons";
-    content: "arrow_right";
-    display: inline-block;
-    font-size: 1.2rem;
-  }
-}
-.material-icons {
-  margin-right: 0.5rem;
-}
-.nav-pills .nav-link.active,
-.nav-pills .show > .nav-link {
-  background-color: $bg-3;
-  @extend .display-4;
   .material-icons {
-    animation: pendulum 0.5s ease-out;
-    animation-fill-mode: forwards;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
   }
-  @keyframes pendulum {
-    0% {
-      transform: rotate(0deg) scale(1);
+  .nav-pills .nav-link.active,
+  .nav-pills .show > .nav-link {
+    background-color: $bg-3;
+    @extend .h3;
+    @extend .mb-0;
+    .material-icons {
+      animation: pendulum 0.5s ease-out;
+      animation-fill-mode: forwards;
+      margin-right: 1rem;
     }
-    33% {
-      transform: rotate(-45deg) scale(2);
+    @keyframes pendulum {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+      33% {
+        transform: rotate(-45deg) scale(2);
+      }
+      66% {
+        transform: rotate(45deg) scale(2);
+      }
+      100% {
+        transform: rotate(0deg) scale(2);
+      }
     }
-    66% {
-      transform: rotate(45deg) scale(2);
+  }
+  .nav-shadow {
+    @extend .rounded-top-5;
+    $blur: 1.5px;
+    $spread: 0;
+    $offset: 1.5px;
+    box-shadow: 0 -#{$offset} $blur $spread $shadow-color,
+      $offset -#{$offset} $blur $spread $shadow-color,
+      -#{$offset} -#{$offset} $blur $spread $shadow-color;
+  }
+}
+
+.section_mobile {
+  .card {
+    @extend .rounded-10;
+    @extend .bg-lightgray;
+  }
+  .card-header {
+    @extend .bg-white;
+  }
+  .card-header,
+  .card {
+    border: none;
+  }
+  .card-body-container {
+    @extend .bg-lightgray;
+  }
+  .card-body {
+    @extend .bg-light;
+    li {
+      display: flex;
     }
-    100% {
-      transform: rotate(0deg) scale(2);
+    li:before {
+      font-family: "Material Icons";
+      content: "arrow_right";
+      display: inline-block;
+      font-size: 1.2rem;
+    }
+  }
+  .accordion-title-arrow {
+    transition: transform 0.5s ease;
+    @extend .bg-primary;
+    @extend .rounded-circle;
+    @extend .text-light;
+  }
+  .collapsed {
+    .accordion-title-arrow {
+      transform: rotate(0);
+      @extend .bg-secondary;
+    }
+  }
+  .accordion-title-arrow {
+    transform: rotate(-180deg);
+  }
+  @keyframes arrow-rotate {
+  }
+}
+
+@mixin set_show_section($is_desktop) {
+  @if $is_desktop == true {
+    .section_desktop {
+      display: block;
+    }
+    .section_mobile {
+      display: none;
+    }
+  } @else {
+    .section_desktop {
+      display: none;
+    }
+    .section_mobile {
+      display: block;
     }
   }
 }
-.nav-shadow {
-  @extend .rounded-top-5;
-  $blur: 1.5px;
-  $spread: 0;
-  $offset: 1.5px;
-  box-shadow: 0 -#{$offset} $blur $spread $shadow-color,
-    $offset -#{$offset} $blur $spread $shadow-color,
-    -#{$offset} -#{$offset} $blur $spread $shadow-color;
+
+// mobile
+@media screen and (max-width: #{$breakpoint-sm-max}px) {
+  @include set_show_section(false);
 }
-@media screen and (max-width: #{$breakpoint-sm}px) {
-  .section_desktop {
-    display: none;
-  }
-  .section_mobile {
-    display: block;
-  }
+
+// desktop
+@media screen and (min-width: #{$breakpoint-sm}px) {
+  @include set_show_section(true);
 }
+
+// // mobile
+// @media screen and (max-width: #{$breakpoint-sm-max}px) {
+//   .section_desktop {
+//     display: none;
+//   }
+//   .section_mobile {
+//     display: block;
+//   }
+// }
+
+// // desktop
+// @media screen and (min-width: #{$breakpoint-sm}px) {
+//   .section_desktop {
+//     display: block;
+//   }
+//   .section_mobile {
+//     display: none;
+//   }
+// }
